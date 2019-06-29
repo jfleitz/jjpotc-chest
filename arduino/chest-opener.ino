@@ -20,7 +20,7 @@ Servo svo;
 
 //constants that may need to be adjusted:
 const int openPos = 0; //degree position on the servo for the chest to be open
-const int closedPos = 80; //degree position on the servo for the chest to be closed
+const int closedPos = 55; //degree position on the servo for the chest to be closed
 const int openSpeedDelay = 15; //delay in ms for adjusting how fast the servo opens the chest
 const int closeSpeedDelay = 15; //delay in ms for adjusting how fast the servo closes the chest
  
