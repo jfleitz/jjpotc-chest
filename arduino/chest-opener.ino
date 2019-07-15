@@ -44,7 +44,6 @@ void setup(){
   pinMode(servoPin,OUTPUT);
   pinMode(switchPin,INPUT_PULLUP);
   
-  svo.attach(servoPin); 
 
   MoveChest(false);
   
@@ -59,6 +58,7 @@ void MoveChest(bool open) {
 
   // set the LED:
   digitalWrite(ledPin, open);
+  svo.attach(servoPin); 
 
   if (open) {  
     for (pos = closedPos; pos > openPos; pos--) {
@@ -73,7 +73,10 @@ void MoveChest(bool open) {
       svo.write(pos);              // tell servo to go to position in variable 'pos'
       delay(closeSpeedDelay);                       // waits 15ms for the servo to reach the position
     }  
-  }    
+  }
+
+  delay(250); //shouldn't be necessary since the loop delays should have handled...but we are detaching to being safe
+  svo.detach();   
 }
 
 
